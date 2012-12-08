@@ -14,8 +14,8 @@
  *********************************************/
 
 html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal iframe,
-.reveal h5, .reveal h6, .reveal p, .reveal blockquote, .reveal pre,
-.reveal a, .reveal abbr, .reveal acronym, .reveal address, .reveal big, .reveal cite, .reveal code,
+.reveal h5, .reveal h6, .reveal p, .reveal blockquote,
+.reveal a, .reveal abbr, .reveal acronym, .reveal address, .reveal big, .reveal cite,
 .reveal del, .reveal dfn, .reveal em, .reveal img, .reveal ins, .reveal kbd, .reveal q, .reveal s, .reveal samp,
 .reveal small, .reveal strike, .reveal strong, .reveal sub, .reveal sup, .reveal tt, .reveal var,
 .reveal b, .reveal u, .reveal i, .reveal center,
@@ -267,21 +267,6 @@ body {
 		content: '\201D';
 	}
 
-.reveal pre {
-	display: block;
-	position: relative;
-	width: 90%;
-	margin: 15px auto;
-
-	text-align: left;
-	font-size: 0.55em;
-	font-family: monospace;
-	line-height: 1.2em;
-
-	word-wrap: break-word;
-
-	box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
-}
 .reveal pre code {
 	padding: 5px;
 }
@@ -474,14 +459,7 @@ body {
 	   -moz-backface-visibility: hidden;
 	        backface-visibility: hidden;
 }
-	.reveal .roll:hover span {
-	    background: rgba(0,0,0,0.5);
 
-	    -webkit-transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
-	       -moz-transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
-	        -ms-transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
-	            transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
-	}
 .reveal .roll span:after {
 	content: attr(data-title);
 

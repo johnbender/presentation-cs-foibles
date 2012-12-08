@@ -13,6 +13,11 @@ body {
   font-family: sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: purple;
+}
+
 ul {
   list-style: none;
   font-size: 1.5em;
@@ -53,6 +58,9 @@ h4 {
   width: 100%;
 }
 
+pre > code {
+  font-size: 3em;
+}
 
 /* per slide styles */
 
@@ -60,8 +68,34 @@ h4 {
   margin-bottom: -20px;
 }
 
-#intro > p.subtext {
+#intro > h1 > span.envy {
+  background: -webkit-gradient(linear, center top, center bottom, from(black), to(#009924));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#intro > h4 {
   font-size: 3.48em;
   font-family: 'BebasNeueRegular', Arial, sans-serif;
   margin-top: 0px;
+}
+
+/* code highlights */
+
+.keyword {
+  color: #f47321;
+  font-weight: bold;
+}
+
+.comment {
+  color: #aea79f;
+}
+
+.this {
+  font-weight: bold;
+  color: purple;
+}
+
+.string {
+  color: #d14;
 }

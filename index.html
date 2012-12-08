@@ -13,24 +13,54 @@
     <div class="slides">
       <section id="intro" data-markdown>
         <script type="text/template">
-          # Math Envy
+          # Math <span class="envy">Envy</env>
 
-          <p class="subtext">
-            and CoffeeScript's Foibles
-          </p>
+          #### and CoffeeScript's Foibles
 
-          [johnbender.us/foo-preso]()
-         </script>
-       </section>
-
-       <section data-markdown>
-         <script type="text/template">
-           ## John Bender
-
-           * github.com/johnbender
-           * johnbender.us
-           * @johnbender
+          * [johnbender.us/replace-this](http://johnbender.us)
         </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## John Bender
+
+          * [github.com/johnbender](https://github.com/johnbender)
+          * [johnbender.us](http://johnbender.us)
+          * [@johnbender](http://twitter.com/johnbender)
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+grade = (student) ->
+  if student.excellentWork
+    "A+"
+  else if student.okayStuff
+    if student.triedHard then "B" else "B-"
+  else
+    "C"
+
+eldest = if 24 > 21 then "Liz" else "Ike"
+
+square = (x) -> x * x
+
+two = -> 2
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="javascript">
+// Current jQuery.fn.removeAttr
+jQuery.fn.removeAttr = function( name ) {
+    return this.each(function() {
+        jQuery.removeAttr( this, name );
+    });
+};</code>
+        </pre>
       </section>
     </div>
 
