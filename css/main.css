@@ -11,6 +11,7 @@
 
 body {
   font-family: sans-serif;
+  color: #222;
 }
 
 a {
@@ -22,8 +23,9 @@ ul {
   list-style: none;
   font-size: 1.5em;
   line-height: 1.3em;
-  margin: 0;
+  margin: 0 0 0 3px;
   padding: 0;
+  text-transform: lowercase;
 }
 
 section {
@@ -42,12 +44,24 @@ h1 {
   font-size: 9em;
 }
 
-h2  {
+h3, h2, #personal h1  {
   font-size: 7.5em;
 }
 
-h3 {
-  font-size: 6em;
+h2:before, h3:before {
+}
+
+h2:first-letter {
+  color: #ff0055;
+}
+
+h3:first-letter {
+  color: #538192;
+/*  font-size: 6em; */
+}
+
+#personal h2:first-letter {
+  color: #333;
 }
 
 h4 {
@@ -62,14 +76,19 @@ pre > code {
   font-size: 3em;
 }
 
+pre.large > code {
+  font-size: 2em;
+}
+
 /* per slide styles */
 
 #intro > h1 {
   margin-bottom: -20px;
 }
 
-#intro > h1 > span.envy {
-  background: -webkit-gradient(linear, center top, center bottom, from(black), to(#009924));
+span.envy {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(22%,#000000), color-stop(90%,#739200)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #000000 22%,#739200 90%); /* Chrome10+,Safari5.1+ */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -98,4 +117,65 @@ pre > code {
 
 .string {
   color: #d14;
+}
+
+/* dimmed for hilights */
+
+.hilighted .hemisu-comment, .hilighted pre .comment, .hilighted pre .xml .doctype, .hilighted pre .html .doctype,
+.hilighted .hemisu-accent1, .hilighted pre .number, .hilighted pre .ruby .keyword,
+.hilighted .hemisu-accent2, .hilighted pre .string, .hilighted pre .regexp, .hilighted pre .xml .value, .hilighted pre .html .value,
+.hilighted .hemisu-accent3, .hilighted pre .keyword, .hilighted pre .title, .hilighted pre .constant, .hilighted pre .xml .tag, .hilighted pre .html .tag, .hilighted pre .css .rules .attribute,
+.hilighted .hemisu-accent4,
+.hilighted pre .xml .tag .title,
+.hilighted pre .html .tag .title,
+.hilighted pre code {
+  color: #CCC;
+}
+
+/* Hemisu Dark */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - http://noahfrederick.com/vim-color-scheme-hemisu/ */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+.hemisu-comment, pre .comment, pre .xml .doctype, pre .html .doctype,
+.highlight .hemisu-comment, pre .hilight .comment, pre .xml .hilight .doctype, pre .html .higlight .doctype {
+  color: #777;
+}
+
+.hemisu-accent1, pre .number, pre .ruby .keyword,
+.hemisu-accent1, pre .hilight .number, pre .ruby .hilight .keyword {
+  color: #538192;
+}
+
+.hemisu-accent2, pre .string, pre .regexp, pre .xml .value, pre .html .value,
+.hemisu-accent2, pre .hilight .string, pre .hilight .regexp, pre .xml .hilight .value, pre .html .hilight .value {
+  color: #739200;
+}
+
+.hemisu-accent3, pre .keyword, pre .title, pre .constant, pre .xml .tag, pre .html .tag, pre .css .rules .attribute,
+.hemisu-accent3, pre .hilight .keyword, pre .hilight .title, pre .hilight .constant, pre .xml .hilight .tag, pre .html .hilight .tag, pre .css .rules .hilight .attribute {
+  color: #ff0055;
+}
+
+.hemisu-accent4, .hilight .hemisu-accent4 {
+  color: #503d15;
+}
+
+pre code {
+  background: white;
+  color: #111111;
+  font-family: Menlo, Monaco, Consolas, monospace;
+  line-height: 1.5;
+  padding: 10px;
+}
+
+pre > code .hilight {
+  color: #111111;
+}
+
+pre .xml .tag .title, pre .xml .tag .hilight .title {
+  color: #111111;
+}
+
+pre .html .tag .title, pre .html .tag .hilight .title {
+  color: #111111;
 }

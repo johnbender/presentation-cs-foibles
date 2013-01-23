@@ -1,12 +1,13 @@
 Reveal.initialize({
-	transition: "none",
+	transition: "linear",
 	history: true,
 	progress: true,
+	controls: false,
   dependencies: [
     // Interpret Markdown in <section> elements
     { src: 'js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 
-    { src: 'js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); }},
 
     // Syntax highlight for <code> elements
     {	src: 'js/plugin/highlight/highlight.js',
@@ -30,7 +31,21 @@ Reveal.initialize({
 			}
 		},
 
+    { src: 'js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+
     // Speaker notes
-    { src: 'js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    { src: 'js/jquery-1.9.0.min.js', async: true, callback: function() {
+        $(function() {
+	          $( "code" ).each(function(){
+		            $( ".sh_keyword:contains('this')" ).addClass( "this" );
+
+		            $( "pre" ).html(function( i, string ) {
+			              return string
+				                .replace("~~", "<span class='hilight'>" )
+				                .replace("/~~", "</span>" );
+		            });
+	          });
+        });
+    }}
   ]
 });

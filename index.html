@@ -13,53 +13,103 @@
     <div class="slides">
       <section id="intro" data-markdown>
         <script type="text/template">
-          # Math <span class="envy">Envy</env>
+          # Math <span class="envy">Envy</span>
 
           #### and CoffeeScript's Foibles
 
-          * [johnbender.us/replace-this](http://johnbender.us)
+          * johnbender.us/presentation-cs-foibles
+        </script>
+      </section>
+
+      <section id="personal" data-markdown>
+        <script type="text/template">
+          # John Bender
+
+          * github.com/johnbender
+          * johnbender.us
+          * @johnbender
         </script>
       </section>
 
       <section data-markdown>
         <script type="text/template">
-          ## John Bender
+          ## But why?
+          * So much effort
+        </script>
+      </section>
 
-          * [github.com/johnbender](https://github.com/johnbender)
-          * [johnbender.us](http://johnbender.us)
-          * [@johnbender](http://twitter.com/johnbender)
+      <section data-markdown>
+        <script type="text/template">
+          ### Math/Formalism
+          * Strait-jacket for your ideas
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Language Design
+          * You've probably (considered it)+
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Embrace <span class="envy">Envy</span>
+          * Certainly not the "worst idea"
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Foibles a la carte
+          * CoffeeScript is our guinea pig for today
         </script>
       </section>
 
       <section>
         <pre>
           <code class="coffeescript">
-grade = (student) ->
-  if student.excellentWork
-    "A+"
-  else if student.okayStuff
-    if student.triedHard then "B" else "B-"
-  else
-    "C"
-
-eldest = if 24 > 21 then "Liz" else "Ike"
-
-square = (x) -> x * x
-
-two = -> 2
+x = a + b # addition
+x = a+b   # addition
+x = a+ b  # addition
+x = a +b  # a(+b) !! application
           </code>
         </pre>
       </section>
 
       <section>
         <pre>
-          <code class="javascript">
-// Current jQuery.fn.removeAttr
-jQuery.fn.removeAttr = function( name ) {
-    return this.each(function() {
-        jQuery.removeAttr( this, name );
-    });
-};</code>
+          <code class="coffeescript">
+x =  y for y in list       # x == list.last
+x = (y for y in list)      # x == list
+x = (-> y for y in list)() # x == list
+         </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+ x -> y          # lambda
+(x) -> y         # lambda
+(x -> y)(true)   # invocation
+(x -> y) true    # application
+(x -> y) () -> z # application
+(x -> y)() -> z  # invocation, y(->z)
+          </code>
+        </pre>
+      </section>
+
+      <section class="hilighted">
+        <pre>
+          <code class="coffeescript">
+ x -> y          # lambda
+(x) -> y         # lambda
+(x -> y)(true)   # invocation
+(x -> y) true    # application
+~~(x -> y) () -> z # application/~~
+~~(x -> y)() -> z  # invocation, y(->z)/~~
+          </code>
         </pre>
       </section>
     </div>

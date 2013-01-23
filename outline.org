@@ -1,0 +1,13 @@
+* motivation/relevance
+** math/formalism is great
+** language design
+** jeremy quote
+* coffescript example (examples?)
+** operators
+** lambdas
+* formal definition of ambiguity
+* operational semantics
+* type rules
+* implementation
+* future work
+* thanks

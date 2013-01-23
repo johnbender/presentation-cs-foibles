@@ -504,11 +504,11 @@ body {
 	z-index: 1;
 	text-align: center;
 
-	-webkit-transition: -webkit-perspective .4s ease;
-	   -moz-transition: -moz-perspective .4s ease;
-	    -ms-transition: -ms-perspective .4s ease;
-	     -o-transition: -o-perspective .4s ease;
-	        transition: perspective .4s ease;
+	-webkit-transition: -webkit-perspective .3s ease;
+	   -moz-transition: -moz-perspective .3s ease;
+	    -ms-transition: -ms-perspective .3s ease;
+	     -o-transition: -o-perspective .3s ease;
+	        transition: perspective .3s ease;
 
 	-webkit-perspective: 600px;
 	   -moz-perspective: 600px;
@@ -573,7 +573,7 @@ body {
 .reveal.center,
 .reveal.center .slides,
 .reveal.center .slides section {
-	min-height: auto !important;
+
 }
 
 
@@ -697,14 +697,14 @@ body {
  * LINEAR TRANSITION
  *********************************************/
 
-.reveal.linear .slides>section.past {
+.reveal.linear .slides > section.past {
 	-webkit-transform: translate(-150%, 0);
 	   -moz-transform: translate(-150%, 0);
 	    -ms-transform: translate(-150%, 0);
 	     -o-transform: translate(-150%, 0);
 	        transform: translate(-150%, 0);
 }
-.reveal.linear .slides>section.future {
+.reveal.linear .slides > section.future {
 	-webkit-transform: translate(150%, 0);
 	   -moz-transform: translate(150%, 0);
 	    -ms-transform: translate(150%, 0);
@@ -712,14 +712,14 @@ body {
 	        transform: translate(150%, 0);
 }
 
-.reveal.linear .slides>section>section.past {
+.reveal.linear .slides > section > section.past {
 	-webkit-transform: translate(0, -150%);
 	   -moz-transform: translate(0, -150%);
 	    -ms-transform: translate(0, -150%);
 	     -o-transform: translate(0, -150%);
 	        transform: translate(0, -150%);
 }
-.reveal.linear .slides>section>section.future {
+.reveal.linear .slides > section > section.future {
 	-webkit-transform: translate(0, 150%);
 	   -moz-transform: translate(0, 150%);
 	    -ms-transform: translate(0, 150%);
@@ -1140,7 +1140,7 @@ body {
 	left: 0;
 }
 
-.no-transition {
+.no-transition, body > .slides > section.no-transition {
 	-webkit-transition: none;
 	   -moz-transition: none;
 	    -ms-transition: none;
