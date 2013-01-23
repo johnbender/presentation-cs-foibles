@@ -1,5 +1,5 @@
 Reveal.initialize({
-	transition: "linear",
+	transition: "none",
 	history: true,
 	progress: true,
 	controls: false,

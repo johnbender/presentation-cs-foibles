@@ -60,10 +60,6 @@ h3:first-letter {
 /*  font-size: 6em; */
 }
 
-#personal h2:first-letter {
-  color: #333;
-}
-
 h4 {
   font-size: 4em;
 }
@@ -129,7 +125,7 @@ span.envy {
 .hilighted pre .xml .tag .title,
 .hilighted pre .html .tag .title,
 .hilighted pre code {
-  color: #CCC;
+  color: #DDD;
 }
 
 /* Hemisu Dark */
