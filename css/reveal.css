@@ -1140,7 +1140,7 @@ body {
 	left: 0;
 }
 
-.no-transition, body > .slides > section.no-transition {
+.no-transition, body > xo.slides > section.no-transition {
 	-webkit-transition: none;
 	   -moz-transition: none;
 	    -ms-transition: none;
@@ -1242,3 +1242,4 @@ body {
 }
 
 
+xo

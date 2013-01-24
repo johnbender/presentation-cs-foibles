@@ -13,8 +13,6 @@ Reveal.initialize({
     {	src: 'js/plugin/highlight/highlight.js',
 			async: true,
 			callback: function() {
-				hljs.initHighlightingOnLoad();
-
 				// Replace `keyword` class with `this` class where appropriate
 				window.addEventListener( "load", function() {
 						var l, set;
@@ -31,9 +29,10 @@ Reveal.initialize({
 			}
 		},
 
+    // Speaker notes
     { src: 'js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
 
-    // Speaker notes
+    // load jquery and handle hilights
     { src: 'js/jquery-1.9.0.min.js', async: true, callback: function() {
         $(function() {
 	          $( "code" ).each(function(){
@@ -44,6 +43,8 @@ Reveal.initialize({
 				                .replace("~~", "<span class='hilight'>" )
 				                .replace("/~~", "</span>" );
 		            });
+
+                hljs.initHighlighting();
 	          });
         });
     }}

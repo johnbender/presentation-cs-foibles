@@ -106,12 +106,82 @@ x = (-> y for y in list)() # x == list
 (x -> y)(true)   # invocation
 (x -> y) true    # application
 ~~(x -> y) () -> z # application/~~
-~~(x -> y)() -> z  # ??? /~~
+~~(x -> y)() -> z  # ???/~~
           </code>
         </pre>
       </section>
-    </div>
 
+      <section>
+        <pre>
+          <code class="coffeescript">
+(x -> y) () -> z # application
+(x -> y)() -> z  # ???
+          </code>
+        </pre>
+      </section>
+
+      <section class="hilighted">
+        <pre>
+          <code class="coffeescript">
+(x -> y) () -> z # application
+~~(x -> y)() -> z  # ???/~~
+          </code>
+        </pre>
+      </section>
+
+      <section class="hilighted">
+        <pre>
+          <code class="coffeescript">
+(x -> y) () -> z # application
+~~(x -> y)()/~~ -> z  # ???
+          </code>
+        </pre>
+      </section>
+
+      <section class="hilighted">
+        <pre>
+          <code class="coffeescript">
+(x -> y) () -> z # application
+(x -> y)() ~~-> z/~~  # ???
+          </code>
+        </pre>
+      </section>
+
+      <section class="hilighted">
+        <pre>
+          <code class="coffeescript">
+(x -> y) () -> z # application
+~~(x -> y)() -> z  # inv, app /~~
+          </code>
+        </pre>
+      </section>
+
+      <section class="hilighted">
+        <pre>
+          <code class="coffeescript">
+(x -> y~~)☠(/~~) -> z # application
+(x -> y~~)(/~~) -> z  # inv, app
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(x -> y) () -> z # application
+(x -> y)() -> z  # inv, app
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Ambiguity
+          * What is it about the lambdas?
+        </script>
+      </section>
+
+    </div>
     <script type="text/javascript" src="js/head.js"></script>
     <script type="text/javascript" src="js/reveal.js"></script>
     <script type="text/javascript" src="js/reveal.init.js"></script>

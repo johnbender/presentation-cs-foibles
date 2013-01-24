@@ -9,6 +9,17 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('../font/BebasNeue-webfont.eot');
+    src: url('../font/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/BebasNeue-webfont.woff') format('woff'),
+         url('../font/BebasNeue-webfont.ttf') format('truetype'),
+         url('../font/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
   font-family: sans-serif;
   color: #222;
@@ -97,11 +108,6 @@ span.envy {
 
 /* code highlights */
 
-.keyword {
-  color: #f47321;
-  font-weight: bold;
-}
-
 .comment {
   color: #aea79f;
 }
@@ -124,6 +130,7 @@ span.envy {
 .hilighted .hemisu-accent4,
 .hilighted pre .xml .tag .title,
 .hilighted pre .html .tag .title,
+.hilighted pre .identifier,
 .hilighted pre code {
   color: #DDD;
 }
@@ -147,8 +154,8 @@ span.envy {
   color: #739200;
 }
 
-.hemisu-accent3, pre .keyword, pre .title, pre .constant, pre .xml .tag, pre .html .tag, pre .css .rules .attribute,
-.hemisu-accent3, pre .hilight .keyword, pre .hilight .title, pre .hilight .constant, pre .xml .hilight .tag, pre .html .hilight .tag, pre .css .rules .hilight .attribute {
+.hemisu-accent3, pre .keyword, pre .title, pre .constant, pre .xml .tag, pre .html .tag, pre .css .rules .attribute, pre .identifier,
+.hemisu-accent3, pre .hilight .keyword, pre .hilight .title, pre .hilight .constant, pre .xml .hilight .tag, pre .html .hilight .tag, pre .css .rules .hilight .attribute, pre .hilight .identifier {
   color: #ff0055;
 }
 
