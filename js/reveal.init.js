@@ -39,13 +39,51 @@ Reveal.initialize({
 		            $( ".sh_keyword:contains('this')" ).addClass( "this" );
 
 		            $( "pre" ).html(function( i, string ) {
+                    // the css requires that the parent be tagged with
+                    // the hilighted class
+                    if( string.match( /~~/ ) ){
+                        $(this).parents( "section" ).addClass( "hilighted" );
+                    }
+
+                    // replace the hilight markers with spans
 			              return string
 				                .replace("~~", "<span class='hilight'>" )
 				                .replace("/~~", "</span>" );
 		            });
-
                 hljs.initHighlighting();
 	          });
+
+
+            $( "section" ).each(function(i, elem) {
+                var elem = $(elem), heading;
+
+                if( elem.children( "h1, h2, h3" ).length === 0 ) {
+                    var previousSiblings =  elem.prevAll(),
+                    length = previousSiblings.length, i = 0;
+
+                    while( i <= length ){
+                        if( previousSiblings.eq(i).children("h1,h2,h3").length ) {
+                            heading = previousSiblings.eq(i).find( "h1,h2,h3" );
+                            break;
+                        }
+                        i++;
+                    }
+
+                }
+
+                if(heading) {
+                    elem.append("<div class='label-content'><h4>" + heading.text() + "</h4></div>" );
+                }
+            });
+
+            function setSlideLabel() {
+                var slide = Reveal.getCurrentSlide();
+                $( "#label" ).html("");
+                $( "#label" ).html( $( slide ).children(".label-content").html() );
+            }
+
+            setSlideLabel();
+            Reveal.addEventListener( 'slidechanged', setSlideLabel );
         });
     }}
   ]

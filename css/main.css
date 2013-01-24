@@ -75,6 +75,21 @@ h4 {
   font-size: 4em;
 }
 
+#label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+#label h4  {
+  font-size: 3em;
+  color: #777;
+}
+
+.label-content {
+  display: none;1
+}
+
 .reveal .slides {
   width: 100%;
 }
@@ -131,6 +146,7 @@ span.envy {
 .hilighted pre .xml .tag .title,
 .hilighted pre .html .tag .title,
 .hilighted pre .identifier,
+.hilighted pre .literal,
 .hilighted pre code {
   color: #DDD;
 }
@@ -144,8 +160,8 @@ span.envy {
   color: #777;
 }
 
-.hemisu-accent1, pre .number, pre .ruby .keyword,
-.hemisu-accent1, pre .hilight .number, pre .ruby .hilight .keyword {
+.hemisu-accent1, pre .number, pre .ruby .keyword, pre .type,
+.hemisu-accent1, pre .hilight .number, pre .ruby .hilight .keyword, pre .hilight .type, pre .hilight .literal {
   color: #538192;
 }
 
@@ -154,8 +170,8 @@ span.envy {
   color: #739200;
 }
 
-.hemisu-accent3, pre .keyword, pre .title, pre .constant, pre .xml .tag, pre .html .tag, pre .css .rules .attribute, pre .identifier,
-.hemisu-accent3, pre .hilight .keyword, pre .hilight .title, pre .hilight .constant, pre .xml .hilight .tag, pre .html .hilight .tag, pre .css .rules .hilight .attribute, pre .hilight .identifier {
+.hemisu-accent3, pre .keyword, pre .title, pre .constant, pre .xml .tag, pre .html .tag, pre .css .rules .attribute, pre .identifier, pre .literal,
+.hemisu-accent3, pre .hilight .keyword, pre .hilight .title, pre .hilight .constant, pre .xml .hilight .tag, pre .html .hilight .tag, pre .css .rules .hilight .attribute, pre .hilight .identifier, pre .hilight .literal {
   color: #ff0055;
 }
 

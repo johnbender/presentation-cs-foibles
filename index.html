@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body class="reveal center">
+    <div id="label"></div>
+
     <div class="slides">
       <section id="intro" data-markdown>
         <script type="text/template">
@@ -138,7 +140,7 @@ x = (-> y for y in list)() # x == list
         </pre>
       </section>
 
-      <section class="hilighted">
+      <section>
         <pre>
           <code class="coffeescript">
 (x -> y) () -> z # application
@@ -147,20 +149,20 @@ x = (-> y for y in list)() # x == list
         </pre>
       </section>
 
-      <section class="hilighted">
+      <section>
         <pre>
           <code class="coffeescript">
 (x -> y) () -> z # application
-~~(x -> y)() -> z  # inv, app /~~
+~~(x -> y)() -> z  # inv, y(-> z) app /~~
           </code>
         </pre>
       </section>
 
-      <section class="hilighted">
+      <section>
         <pre>
           <code class="coffeescript">
 (x -> y~~)☠(/~~) -> z # application
-(x -> y~~)(/~~) -> z  # inv, app
+(x -> y~~)(/~~) -> z  # inv, y(-> z) app
           </code>
         </pre>
       </section>
@@ -169,7 +171,7 @@ x = (-> y for y in list)() # x == list
         <pre>
           <code class="coffeescript">
 (x -> y) () -> z # application
-(x -> y)() -> z  # inv, app
+(x -> y)() -> z  # inv, y(-> z) app
           </code>
         </pre>
       </section>
@@ -177,8 +179,139 @@ x = (-> y for y in list)() # x == list
       <section data-markdown>
         <script type="text/template">
           ## Ambiguity
-          * What is it about the lambdas?
+          * What makes two terms ambiguous?
         </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(x -> y) () -> z # application
+(x -> y)() -> z  # inv, y(-> z) app
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(x -> y~~)☠(/~~) -> z # application
+(x -> y~~)(/~~) -> z  # inv, y(-> z) app
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### String Distance
+          * how do we get from one to the other?
+        </script>
+      </section>
+
+
+      <section data-markdown>
+        <script type="text/template">
+          !! include image of levenstein formula
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! include image of levenstein formula
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! include image of levenstein ratio
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(x -> y) () -> z # length: 16
+(x -> y)() -> z  # length: 15
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! include image of calculuation for ratio
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Semantics
+          * Distance has no semantic value
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(x -> y) () -> z # application
+(x -> y)() -> z  # inv, y(-> z) app
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(x -> y~~)☀(/~~) -> z # application
+(x -> y~~)(/~~) -> z  # inv, y(-> z) app
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Abstract Form
+          * CoffeeScript's AST captures the difference here
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true) () -> false # app
+(-> true)() -> false  # inv, app
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true~~)☠(/~~) -> false # app
+(-> true~~)(/~~) -> false  # inv, app
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="haskell">
+-- (-> true)☠() -> false
+Apply
+  (Lambda (BooleanExpr True))
+  (Lambda (BooleanExpr False))
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="haskell">
+-- (-> true)() -> false
+Apply
+  (Invoke (Lambda (BooleanExpr True)))
+  (Lambda (BooleanExpr False))
+          </code>
+        </pre>
       </section>
 
     </div>
