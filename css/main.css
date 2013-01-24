@@ -147,6 +147,7 @@ span.envy {
 .hilighted pre .html .tag .title,
 .hilighted pre .identifier,
 .hilighted pre .literal,
+.hilighted pre .type,
 .hilighted pre code {
   color: #DDD;
 }

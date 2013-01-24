@@ -69,10 +69,10 @@
       <section>
         <pre>
           <code class="coffeescript">
-x = a + b # addition
-x = a+b   # addition
-x = a+ b  # addition
-x = a +b  # a(+b) !! application
+a + b # addition
+a+b   # addition
+a+ b  # addition
+a +b  # a(+b) !! application
           </code>
         </pre>
       </section>
@@ -80,9 +80,8 @@ x = a +b  # a(+b) !! application
       <section>
         <pre>
           <code class="coffeescript">
-x =  y for y in list       # x == list.last
-x = (y for y in list)      # x == list
-x = (-> y for y in list)() # x == list
+x = y for y in [1,2]   # x: 2
+x = (y for y in [1,2]) # x: [1,2]
          </code>
         </pre>
       </section>
@@ -153,7 +152,7 @@ x = (-> y for y in list)() # x == list
         <pre>
           <code class="coffeescript">
 (x -> y) () -> z # application
-~~(x -> y)() -> z  # inv, y(-> z) app /~~
+~~(x -> y)() -> z  # inv, y(-> z) !! app /~~
           </code>
         </pre>
       </section>
@@ -162,7 +161,7 @@ x = (-> y for y in list)() # x == list
         <pre>
           <code class="coffeescript">
 (x -> y~~)☠(/~~) -> z # application
-(x -> y~~)(/~~) -> z  # inv, y(-> z) app
+(x -> y~~)(/~~) -> z  # inv, y(-> z) !! app
           </code>
         </pre>
       </section>
@@ -171,7 +170,7 @@ x = (-> y for y in list)() # x == list
         <pre>
           <code class="coffeescript">
 (x -> y) () -> z # application
-(x -> y)() -> z  # inv, y(-> z) app
+(x -> y)() -> z  # inv, y(-> z) !! app
           </code>
         </pre>
       </section>
@@ -179,7 +178,7 @@ x = (-> y for y in list)() # x == list
       <section data-markdown>
         <script type="text/template">
           ## Ambiguity
-          * What makes two terms ambiguous?
+          * What makes two terms confusing?
         </script>
       </section>
 
@@ -187,7 +186,7 @@ x = (-> y for y in list)() # x == list
         <pre>
           <code class="coffeescript">
 (x -> y) () -> z # application
-(x -> y)() -> z  # inv, y(-> z) app
+(x -> y)() -> z  # inv, y(-> z) !! app
           </code>
         </pre>
       </section>
@@ -196,7 +195,7 @@ x = (-> y for y in list)() # x == list
         <pre>
           <code class="coffeescript">
 (x -> y~~)☠(/~~) -> z # application
-(x -> y~~)(/~~) -> z  # inv, y(-> z) app
+(x -> y~~)(/~~) -> z  # inv, y(-> z) !! app
           </code>
         </pre>
       </section>
@@ -204,7 +203,7 @@ x = (-> y for y in list)() # x == list
       <section data-markdown>
         <script type="text/template">
           ### String Distance
-          * how do we get from one to the other?
+          * How do we get from one to the other?
         </script>
       </section>
 
@@ -253,7 +252,7 @@ x = (-> y for y in list)() # x == list
         <pre>
           <code class="coffeescript">
 (x -> y) () -> z # application
-(x -> y)() -> z  # inv, y(-> z) app
+(x -> y)() -> z  # inv, y(-> z) !! app
           </code>
         </pre>
       </section>
@@ -262,7 +261,30 @@ x = (-> y for y in list)() # x == list
         <pre>
           <code class="coffeescript">
 (x -> y~~)☀(/~~) -> z # application
-(x -> y~~)(/~~) -> z  # inv, y(-> z) app
+(x -> y~~)(/~~) -> z  # inv, y(-> z) !! app
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Differentiation
+          * How do we identify semantic differences?
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Evaluation
+          * Compare evaluation results?
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true)()           # => true
+(-> launch(); true)() # => (!! CRAP)
           </code>
         </pre>
       </section>
@@ -270,7 +292,7 @@ x = (-> y for y in list)() # x == list
       <section data-markdown>
         <script type="text/template">
           ### Abstract Form
-          * CoffeeScript's AST captures the difference here
+          * Compare CoffeeScript's parser output?
         </script>
       </section>
 
@@ -312,6 +334,164 @@ Apply
   (Lambda (BooleanExpr False))
           </code>
         </pre>
+      </section>
+
+      <section>
+        <h1 style="text-align: center">Fin?!</h1>
+      </section>
+
+      <section>
+        <h1 style="text-align: center">Nope</h1>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Lossy Format
+          * AST discards syntax information
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true)    # lambda form 1
+(() -> true) # lambda form 2
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="haskell">
+-- (-> true)
+-- (() -> true)
+Lambda (BooleanExpr True)
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true)    # lambda form 1
+(() -> true) # lambda form 2
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true)    # lambda form 1
+(~~()/~~ -> true) # lambda form 2
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### How Different?
+          * AST doesn't tell us _how_ things are different
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="haskell">
+-- (-> true)☠() -> false
+Apply
+  (Lambda (BooleanExpr True))
+  (Lambda (BooleanExpr False))
+          </code>
+        </pre>
+      </section>
+
+
+      <section>
+        <pre>
+          <code class="haskell">
+~~-- (-> true)☠() -> false/~~
+Apply
+  ~~(Lambda (BooleanExpr True))/~~
+  (Lambda (BooleanExpr False))
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="haskell">
+~~-- (-> true)() -> false/~~
+Apply
+  ~~(Invoke (Lambda (BooleanExpr True)))/~~
+  (Lambda (BooleanExpr False))
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Op. Semantics
+          * Maths for evaluation semantics
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Grammar
+          * Small CoffeeScript subset
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! include image of coffeescript grammar
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! focus on lambda form
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! focus on value forms
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! focus on term forms
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> false)() # invocation
+          </code>
+        </pre>
+        !! Include translatione \false()
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true) true # application
+          </code>
+        </pre>
+        !! Include translation \true true
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> (-> true))() true # both
+          </code>
+        </pre>
+        !! Include translatione \\true() true
       </section>
 
     </div>

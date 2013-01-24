@@ -53,7 +53,6 @@ Reveal.initialize({
                 hljs.initHighlighting();
 	          });
 
-
             $( "section" ).each(function(i, elem) {
                 var elem = $(elem), heading;
 
