@@ -207,38 +207,28 @@ x = (y for y in [1,2]) # x: [1,2]
         </script>
       </section>
 
-
       <section data-markdown>
         <script type="text/template">
-          !! include image of levenstein formula
+          ### Levenshtein
+          * Count of single character edits
         </script>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          !! include image of levenstein formula
-        </script>
-      </section>
-
-      <section data-markdown>
-        <script type="text/template">
-          !! include image of levenstein ratio
-        </script>
+      <section class="img">
+        <img src="images/cs-dist.png"/>
       </section>
 
       <section>
         <pre>
           <code class="coffeescript">
-(x -> y) () -> z # length: 16
-(x -> y)() -> z  # length: 15
+(x -> y) () -> z # S1 length: 16
+(x -> y)() -> z  # S2 length: 15
           </code>
         </pre>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          !! include image of calculuation for ratio
-        </script>
+      <section class="img">
+        <img src="images/cs-dist-example.png"/>
       </section>
 
       <section data-markdown>
@@ -443,28 +433,20 @@ Apply
         </script>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          !! include image of coffeescript grammar
-        </script>
+      <section class="img">
+        <img src="images/cs-grammar.png"/>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          !! focus on lambda form
-        </script>
+      <section class="img">
+        <img src="images/cs-grammar-lambda.png"/>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          !! focus on value forms
-        </script>
+      <section class="img">
+        <img src="images/cs-grammar-value.png"/>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          !! focus on term forms
-        </script>
+      <section class="img">
+        <img src="images/cs-grammar-term.png"/>
       </section>
 
       <section>
@@ -473,7 +455,8 @@ Apply
 (-> false)() # invocation
           </code>
         </pre>
-        !! Include translatione \false()
+
+        <img class="text" src="images/cs-grammar-example-1.png"/>
       </section>
 
       <section>
@@ -482,7 +465,8 @@ Apply
 (-> true) true # application
           </code>
         </pre>
-        !! Include translation \true true
+
+        <img class="text" src="images/cs-grammar-example-2.png"/>
       </section>
 
       <section>
@@ -491,7 +475,8 @@ Apply
 (-> (-> true))() true # both
           </code>
         </pre>
-        !! Include translatione \\true() true
+
+        <img class="text" src="images/cs-grammar-example-3.png"/>
       </section>
 
       <section data-markdown>
@@ -501,22 +486,24 @@ Apply
         </script>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          !! include image of 4 evaluation rules
-        </script>
+      <section class="img">
+        <img src="images/cs-inference-rules.png"/>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          !! include image of first two evaluation rules
-        </script>
+      <section class="img">
+        <img src="images/cs-inference-rules-top.png"/>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          !! include image of second two evaluation rules
-        </script>
+      <section class="img">
+        <img src="images/cs-inference-rules-bottom.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-inference-rules-arg-eval.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-inference-rules-app-eval.png"/>
       </section>
 
       <section>
@@ -525,7 +512,7 @@ Apply
 (-> false)() # invocation
           </code>
         </pre>
-        !! Include translatione \false()
+        <img class="text" src="images/cs-grammar-example-1.png"/>
       </section>
 
       <section data-markdown>
@@ -540,7 +527,7 @@ Apply
 (-> (-> true))() true
           </code>
         </pre>
-        !! Include translatione \\true() true
+        <img class="text" src="images/cs-grammar-example-2.png"/>
       </section>
 
       <section data-markdown>
@@ -707,13 +694,6 @@ true                 # value
         </script>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          ### Term Space
-          * Stoping + starting the term generator
-        </script>
-      </section>
-
       <section>
         <pre>
           <code class="coffeescript">
@@ -721,6 +701,13 @@ true                 # value
 (x, y) -> x + y # add
           </code>
         </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Term Space
+          * Stoping + starting the term generator
+        </script>
       </section>
 
       <section data-markdown>

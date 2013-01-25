@@ -1,0 +1,3 @@
+diagrams/*
+!diagrams/*.tex
+diagrams/_*

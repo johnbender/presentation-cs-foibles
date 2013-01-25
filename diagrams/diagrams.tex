@@ -1,0 +1,107 @@
+\documentclass[11hpt]{article}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage[all]{xy}
+\usepackage{syntax}
+\usepackage{trfrac}
+
+\newcommand{\rulelabel}[1]{
+\small(\emph{#1})
+}
+
+\newcommand{\ruletag}[1]{
+  \tag{\emph{#1}}
+}
+
+\renewcommand{\syntleft}{\normalfont\itshape}
+\renewcommand{\syntright}{}
+
+\begin{document}
+\section{All}
+
+\begin{align*}
+  \text{lev}_{a,b}(i,j) =
+  \begin{cases}
+    max(i,j), &min(i,j) = 0 \\
+    min
+    \begin{cases}
+      \text{lev}_{a,b}(i-1,j) + 1 \\
+      \text{lev}_{a,b}(i,j-1) + 1 \\
+      \text{lev}_{a,b}(i-1,j-1) + (a \neq b)
+    \end{cases}
+  \end{cases}
+\end{align*}
+
+\section{Ambiguity Equations}
+
+\begin{equation*}
+  \text{dist}(S_1, S_2) = \frac{\text{lev}(S_1, S_2)}{\text{max}(\text{len}(S_1), \text{len}(S_2))}
+\end{equation*}
+
+\begin{align*}
+  \text{dist}(S_1, S_2) &= \frac{\text{lev}(S_1, S_2)}{\text{max}(\text{len}(S_1), \text{len}(S_2))} \\
+               &= \frac{1}{\text{max}(16, 15)} \\
+               &= \frac{1}{16}
+\end{align*}
+
+\section{CS Grammar}
+\begin{grammar}
+<\lambda t> ::= \lit*{() ->} <t>
+  \alt \lit*{->} <t>
+
+<v> ::= \lit*{true}
+  \alt \lit*{false}
+  \alt <\lambda t>
+
+<t> ::= <v>
+  \alt <\lambda t>\lit*{()}
+  \alt <t> <t>
+\end{grammar}
+
+\section{Grammar Examples}
+
+\begin{equation*}
+\lambda \lit*{false}\lit*{()}
+\end{equation*}
+
+\begin{equation*}
+\lambda \lit*{true}  \ \lit*{true}
+\end{equation*}
+
+\begin{equation*}
+\lambda\lambda \lit*{true}  \lit*{()} \ \lit*{true}
+\end{equation*}
+
+\section{Evaluation Rules/Relation}
+
+\begin{equation}
+\trfrac[]{}{
+  \lambda t \lit*{()} \rightarrow  t
+} \ruletag{e-inv}
+\end{equation}
+
+\begin{equation}
+\trfrac[]{}{
+  \lambda t \ v  \rightarrow  t
+} \ruletag{e-app}
+\end{equation}
+
+\begin{equation}
+\trfrac[]{
+  t_{2}  \rightarrow  t_{2}'
+}{
+  t_{1} \  t_{2}  \rightarrow t_{1} \  t_{2}'
+} \ruletag{e-arg-eval}
+\end{equation}
+
+\begin{equation}
+\trfrac[]{
+   t \rightarrow  t'
+}{
+  t \ v \rightarrow t' \ v
+} \ruletag{e-app-eval}
+\end{equation}
+
+\
+
+\end{document}

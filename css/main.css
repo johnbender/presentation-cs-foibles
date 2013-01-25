@@ -30,7 +30,14 @@ ul {
 
 section {
   text-align: left;
+}
 
+section.img {
+  text-align: center
+}
+
+section img.text {
+  max-height: 3em;
 }
 
 h1, h2, h3, h4 {
