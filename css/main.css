@@ -9,17 +9,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'BebasNeueRegular';
-    src: url('../font/BebasNeue-webfont.eot');
-    src: url('../font/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../font/BebasNeue-webfont.woff') format('woff'),
-         url('../font/BebasNeue-webfont.ttf') format('truetype'),
-         url('../font/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 body {
   font-family: sans-serif;
   color: #222;
@@ -32,7 +21,7 @@ a {
 
 ul {
   list-style: none;
-  font-size: 1.5em;
+  font-size: 1.6em;
   line-height: 1.3em;
   margin: 0 0 0 3px;
   padding: 0;
@@ -56,19 +45,18 @@ h1 {
 }
 
 h3, h2, #personal h1  {
-  font-size: 7.5em;
+  font-size: 8em;
 }
 
 h2:before, h3:before {
 }
 
-h2:first-letter {
+h2:first-letter, h3 > .hilight {
   color: #ff0055;
 }
 
 h3:first-letter {
   color: #538192;
-/*  font-size: 6em; */
 }
 
 h4 {
@@ -150,6 +138,10 @@ span.envy {
 .hilighted pre .type,
 .hilighted pre code {
   color: #DDD;
+}
+
+.hilighted pre span.blur {
+  -webkit-filter: blur(1px);
 }
 
 /* Hemisu Dark */

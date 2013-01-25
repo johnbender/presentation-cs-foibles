@@ -41,7 +41,7 @@
       <section data-markdown>
         <script type="text/template">
           ### Math/Formalism
-          * Strait-jacket for your ideas
+          * Everything here fell out of formalism
         </script>
       </section>
 
@@ -178,7 +178,7 @@ x = (y for y in [1,2]) # x: [1,2]
       <section data-markdown>
         <script type="text/template">
           ## Ambiguity
-          * What makes two terms confusing?
+          * What makes terms confusing?
         </script>
       </section>
 
@@ -269,7 +269,7 @@ x = (y for y in [1,2]) # x: [1,2]
       <section data-markdown>
         <script type="text/template">
           ## Differentiation
-          * How do we identify semantic differences?
+          * How do we determine semantic differences?
         </script>
       </section>
 
@@ -494,7 +494,250 @@ Apply
         !! Include translatione \\true() true
       </section>
 
-    </div>
+      <section data-markdown>
+        <script type="text/template">
+          ### Evaluation Rules
+          * Evaluation strategy defined as inference rules
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! include image of 4 evaluation rules
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! include image of first two evaluation rules
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! include image of second two evaluation rules
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> false)() # invocation
+          </code>
+        </pre>
+        !! Include translatione \false()
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! include image of invocation derivation
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> (-> true))() true
+          </code>
+        </pre>
+        !! Include translatione \\true() true
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! include image of invoke + apply derivation
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Result + Path
+          * Encompasses the eval result and path
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Seeking Confusion
+          * How can we use this information preventatively?
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Triple ( S,E,T )
+          * Syntax, evaluation, typing
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Triple ( <span class="hilight">S</span>,E,T )
+          * Syntax, evaluation, typing
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Triple ( S,<span class="hilight">E</span>,T )
+          * Syntax, evaluation, typing
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Triple ( S,E,<span class="hilight">T</span> )
+          * Syntax, evaluation, typing
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### T is for Typing
+          * Types are information, eg ⇒ vs →
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Gen. + Compare
+          * Use a BNF to generate terms & compare
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! include image of coffeescript grammar
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          !! focus on value forms
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+true                 # value
+(-> true)            # lambda
+(-> true)()          # invoke
+(-> true) false      # apply bool
+(-> true) -> true    # apply lambda
+(-> true) () -> true # apply lambda
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+~~true                 # value/~~
+(-> true)            # lambda
+(-> true)()          # invoke
+(-> true) false      # apply bool
+(-> true) -> true    # apply lambda
+(-> true) () -> true # apply lambda
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+~~true                 # value/~~
+~~(-> true)            # lambda/~~
+(-> true)()          # invoke
+(-> true) false      # apply bool
+(-> true) -> true    # apply lambda
+(-> true) () -> true # apply lambda
+          </code>
+        </pre>
+      </section>
+
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+~~true                 # value/~~
+~~(-> true)            # lambda/~~
+~~(-> true)()          # invoke/~~
+(-> true) false      # apply bool
+(-> true) -> true    # apply lambda
+(-> true) () -> true # apply lambda
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+~~true                 # value/~~
+~~(-> true)            # lambda/~~
+~~(-> true)()          # invoke/~~
+~~(-> true) false      # apply bool/~~
+(-> true) -> true    # apply lambda
+(-> true) () -> true # apply lambda
+          </code>
+        </pre>
+      </section>
+
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true)() # invoke
+          </code>
+        </pre>
+        !! include image of the triple
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Considerations
+          * This is far from perfect
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### False Positives
+          * Sometimes similarity isn't enough
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Term Space
+          * Stoping + starting the term generator
+        </script>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(x, y) -> x * y # mult
+(x, y) -> x + y # add
+          </code>
+        </pre>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Derivations
+          * Producing a derivation is hard. Shopping?
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          # Thanks!
+          * johnbender.us · @johnbender
+        </script>
+      </section>
+
+     </div>
     <script type="text/javascript" src="js/head.js"></script>
     <script type="text/javascript" src="js/reveal.js"></script>
     <script type="text/javascript" src="js/reveal.init.js"></script>
