@@ -102,6 +102,32 @@
 } \ruletag{e-app-eval}
 \end{equation}
 
-\
+\begin{equation*}
+\trfrac[\rulelabel{e-inv}]{
+}{
+  \lambda \lit*{false} \lit*{()} \to \lit*{false}
+}
+\end{equation*}
+
+\begin{equation*}
+\trfrac[\rulelabel{e-app-eval}]{
+  \trfrac[\rulelabel{e-inv}]{}{
+    \lambda \lambda \lit*{true} \lit*{()} \to \lambda \lit*{true}
+  }
+}{
+  \lambda \lambda \lit*{true} \lit*{()}\ \lit*{true}  \to \lambda \lit*{true}\ \lit*{true}
+}
+\begin{equation*}
+
+\begin{equation*}
+\trfrac[\rulelabel{e-app}]{}{
+  \lambda \lit*{true}\ \lit*{true} \to \lit*{true}
+}
+\begin{equation*}
+
+\begin{equation*}
+( \lit*{(-> true)()},\ \trfrac[\rulelabel{e-inv}]{}{\lambda \lit*{true()} \to \lit*{true}},\ Bool)
+
+\end{equation*}
 
 \end{document}

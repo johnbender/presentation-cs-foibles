@@ -482,7 +482,7 @@ Apply
       <section data-markdown>
         <script type="text/template">
           ### Evaluation Rules
-          * Evaluation strategy defined as inference rules
+          * Inference rules for call by value, left to right
         </script>
       </section>
 
@@ -515,10 +515,12 @@ Apply
         <img class="text" src="images/cs-grammar-example-1.png"/>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          !! include image of invocation derivation
-        </script>
+      <section class="img">
+        <img src="images/cs-inference-rules-inv.png"/>
+      </section>
+
+      <section class="img">
+        <img src="images/cs-derivations-simple.png"/>
       </section>
 
       <section>
@@ -527,13 +529,11 @@ Apply
 (-> (-> true))() true
           </code>
         </pre>
-        <img class="text" src="images/cs-grammar-example-2.png"/>
+        <img class="text" src="images/cs-grammar-example-3.png"/>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          !! include image of invoke + apply derivation
-        </script>
+      <section class="img">
+        <img src="images/cs-derivations-complex-full.png"/>
       </section>
 
       <section data-markdown>
@@ -592,16 +592,13 @@ Apply
         </script>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          !! include image of coffeescript grammar
-        </script>
+
+      <section class="img">
+        <img src="images/cs-grammar.png"/>
       </section>
 
-      <section data-markdown>
-        <script type="text/template">
-          !! focus on value forms
-        </script>
+      <section class="img">
+        <img src="images/cs-grammar-value.png"/>
       </section>
 
       <section>
@@ -677,7 +674,7 @@ true                 # value
 (-> true)() # invoke
           </code>
         </pre>
-        !! include image of the triple
+        <img src="images/cs-term-triple.png"/>
       </section>
 
       <section data-markdown>
