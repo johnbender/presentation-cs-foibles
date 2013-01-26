@@ -9,6 +9,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'UbuntuMono';
+    src: url('../font/BebasNeue-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
   font-family: sans-serif;
   color: #222;
@@ -33,7 +40,12 @@ section {
 }
 
 section.img {
-  text-align: center
+  text-align: center;
+}
+
+section.img img {
+  max-height: 500px;
+  max-width: 700px;
 }
 
 section img.text {
@@ -98,7 +110,7 @@ pre {
   margin-bottom: 2em;
 }
 
-pre > code {
+.reveal code {
   font-size: 3em;
 }
 
