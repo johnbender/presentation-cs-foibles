@@ -75,7 +75,7 @@ h3, h2, #personal h1  {
 h2:before, h3:before {
 }
 
-h2:first-letter, h3 > .hilight {
+h2:first-letter, h3 > .hilight, #thanks {
   color: #ff0055;
 }
 
