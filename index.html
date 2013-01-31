@@ -23,11 +23,20 @@
         </script>
       </section>
 
-      <section id="personal" data-markdown>
+      <section class="personal" data-markdown>
         <script type="text/template">
           # John Bender☚
 
           * github.com/johnbender · johnbender.us · @johnbender
+        </script>
+      </section>
+
+      <section class="personal" data-markdown>
+        <script type="text/template">
+          # John Bender☚
+
+          * github.com/johnbender · johnbender.us · @johnbender
+          <img src="images/adobe.jpg" class="float" alt="adobe" />
         </script>
       </section>
 
@@ -444,7 +453,7 @@ Apply
       </section>
 
       <section class="img">
-        <img src="images/cs-grammar-lambda.png"/>
+        <img src="images/cs-grammar-term.png"/>
       </section>
 
       <section class="img">
@@ -452,7 +461,7 @@ Apply
       </section>
 
       <section class="img">
-        <img src="images/cs-grammar-term.png"/>
+        <img src="images/cs-grammar-lambda.png"/>
       </section>
 
       <section>
@@ -685,6 +694,32 @@ true                 # value
         </pre>
       </section>
 
+      <section>
+        <pre>
+          <code class="coffeescript">
+~~true                 # value/~~
+~~(-> true)            # lambda/~~
+~~(-> true)()          # invoke/~~
+~~(-> true) false      # apply bool/~~
+~~(-> true) -> true    # apply lambda/~~
+(-> true) () -> true # apply lambda
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+~~true                 # value/~~
+~~(-> true)            # lambda/~~
+~~(-> true)()          # invoke/~~
+~~(-> true) false      # apply bool/~~
+~~(-> true) -> true    # apply lambda/~~
+~~(-> true) () -> true # apply lambda/~~
+          </code>
+        </pre>
+      </section>
+
 
       <section>
         <pre><code class="coffeescript">(-> true)() # invoke </code></pre>
@@ -704,6 +739,13 @@ true                 # value
       <section>
         <pre><code class="coffeescript">(-> true)() # invoke </code></pre>
         <img src="images/cs-term-triple-3.png"/>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Term Database
+          * Text search on strings
+        </script>
       </section>
 
       <section data-markdown>
@@ -745,7 +787,7 @@ true                 # value
 
       <section data-markdown>
         <script type="text/template">
-          ## Example
+          ## Implementation
           * git.io/UXRvWA
         </script>
       </section>
@@ -762,6 +804,14 @@ true                 # value
         <script type="text/template">
           ### Type + Eval
           * No shopping, get to work
+        </script>
+      </section>
+
+      <section id="outro" data-markdown>
+        <script type="text/template">
+          # Math <span class="envy">Envy</span>
+
+          #### and CoffeeScript's Foibles
         </script>
       </section>
 

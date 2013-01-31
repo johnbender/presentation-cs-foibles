@@ -53,6 +53,13 @@ section img.text {
   margin-left: 0.5em;
 }
 
+img.float {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+}
+
 code {
   padding: 0p;
 }
@@ -68,7 +75,7 @@ h1 {
   font-size: 9em;
 }
 
-h3, h2, #personal h1  {
+h3, h2, .personal h1  {
   font-size: 8em;
 }
 
@@ -111,7 +118,7 @@ pre {
 }
 
 .reveal code {
-  font-size: 3em;
+  font-size: 2.5em;
 }
 
 pre.large > code {
@@ -120,8 +127,14 @@ pre.large > code {
 
 /* per slide styles */
 
-#intro > h1 {
+#intro > h1, #outro > h1 {
   margin-bottom: -20px;
+}
+
+#intro > h4, #outro > h4 {
+  font-size: 3.48em;
+  font-family: 'BebasNeueRegular', Arial, sans-serif;
+  margin-top: 0px;
 }
 
 span.envy {
@@ -129,12 +142,6 @@ span.envy {
   background: -webkit-linear-gradient(top, #000000 22%,#739200 90%); /* Chrome10+,Safari5.1+ */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-#intro > h4 {
-  font-size: 3.48em;
-  font-family: 'BebasNeueRegular', Arial, sans-serif;
-  margin-top: 0px;
 }
 
 /* code highlights */
@@ -200,9 +207,8 @@ span.envy {
   color: #503d15;
 }
 
-pre code {
+.reveal pre code {
   background: white;
-  color: #111111;
   font-family: Menlo, Monaco, Consolas, monospace;
   line-height: 1.5;
   padding: 10px;
