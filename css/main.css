@@ -28,7 +28,7 @@ a {
 
 ul {
   list-style: none;
-  font-size: 1.6em;
+  font-size: 2em;
   line-height: 1.3em;
   margin: 0 0 0 3px;
   padding: 0;
@@ -72,11 +72,11 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 9em;
+  font-size: 10em;
 }
 
 h3, h2, .personal h1  {
-  font-size: 8em;
+  font-size: 9em;
 }
 
 h2:before, h3:before {
@@ -96,8 +96,8 @@ h4 {
 
 #label {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 20px;
+  left: 20px;
 }
 
 #label h4  {
