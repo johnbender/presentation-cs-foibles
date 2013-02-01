@@ -55,8 +55,8 @@ section img.text {
 
 img.float {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -30%;
+  right: 6%;
   border-radius: 50%;
 }
 
@@ -127,12 +127,12 @@ pre.large > code {
 
 /* per slide styles */
 
-#intro > h1, #outro > h1 {
+.intro > h1, .outro > h1 {
   margin-bottom: -20px;
 }
 
-#intro > h4, #outro > h4 {
-  font-size: 3.48em;
+.intro > h4, .outro > h4 {
+  font-size: 3.85em;
   font-family: 'BebasNeueRegular', Arial, sans-serif;
   margin-top: 0px;
 }
