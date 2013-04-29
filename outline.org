@@ -11,3 +11,23 @@
 * implementation
 * future work
 * thanks
+
+
+* TODO add full image adobe slide
+* TODO add background images for main heading slides
+* TODO slide with many lambda invocations add parens around second lambda to make it clear?
+* TODO use true and false up front for everything?
+* TODO explain levenshtein distance futher?
+* TODO use the canonical example for evaluation as semantic diff + example where that's not true?
+* TODO explain abstract syntax tree/ abstract representation
+* TODO remove fin?! and nope slide
+* TODO show coffeescript subset explicitly
+* TODO Explain BNF? Terminal and non terminals?
+* TODO more highlights on the grammar !!! no laser pointer douchebagery
+* TODO slide with highlights for explaining the structure of inference rules
+* TODO single slides with highlights for each inference rule
+* TODO concrete examples of how a tool might generate terms and compare in a DB
+* TODO larger link to implementation
+
+
+* note about coffeescript, what it is? Ask audience?

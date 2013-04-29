@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/site.css">
   </head>
   <body class="reveal center">
     <div id="label"></div>
@@ -23,28 +24,31 @@
         </script>
       </section>
 
-      <section class="personal" data-markdown>
+      <section class="intro" data-markdown>
         <script type="text/template">
-          # John Bender☚
+          # Math <span class="envy">Envy</span>
 
-          * github.com/johnbender · johnbender.us · @johnbender
+          #### and CoffeeScript's Foibles
+
+          * johnbender.us/presentation-cs-foibles
         </script>
       </section>
 
       <section class="personal" data-markdown>
         <script type="text/template">
-          # John Bender
+          # John Bender ☚
 
           * github.com/johnbender · johnbender.us · @johnbender
-
-          <img src="images/adobe.jpg" class="float" alt="adobe" />
         </script>
       </section>
 
-      <section data-markdown>
+      <section class="img">
+        <img src="images/adobe.jpg" class="float" style="max-height: 650px; height: 650px;" alt="adobe" />
+      </section>
+
+      <section data-state="awesome background" data-markdown>
         <script type="text/template">
-          ## Why + What
-          * Use math to prevent forest fires
+          ## <span class="first-letter">W</span>hy + What
         </script>
       </section>
 
@@ -83,10 +87,9 @@
         </script>
       </section>
 
-      <section data-markdown>
+      <section data-state="broken background" data-markdown>
         <script type="text/template">
-          ## Foibles a la carte
-          * CoffeeScript is our guinea pig for today
+          ## <span class="first-letter">F</span>oibles a la carte
         </script>
       </section>
 
@@ -112,34 +115,21 @@ x = (y for y in [1,2]) # x: [1,2]
 
      <section>
         <pre><code class="coffeescript"># lambda      # lambda
--> y          () -> y</code></pre>
+-> false          () -> false</code></pre>
         <pre><code class="javascript">
 // anonymous function
-(function(){ return y; });</code></pre>
+(function(){ return false; });</code></pre>
       </section>
 
       <section>
         <pre>
           <code class="coffeescript">
--> y           # lambda
-() -> y        # lambda
-(-> y)(true)   # inv
-(-> y) true    # app
-(-> y) () -> z # app
-(-> y)() -> z  # ???
-          </code>
-        </pre>
-      </section>
-
-      <section class="hilighted">
-        <pre>
-          <code class="coffeescript">
--> y           # lambda
-() -> y        # lambda
-(-> y)(true)   # inv
-(-> y) true    # app
-~~(-> y) () -> z # app/~~
-~~(-> y)() -> z  # ???/~~
+-> false              # lambda
+() -> false           # lambda
+(-> false)(true)      # inv
+(-> false) true       # app
+(-> false) () -> true # app
+(-> false)() -> true  # ???
           </code>
         </pre>
       </section>
@@ -147,8 +137,65 @@ x = (y for y in [1,2]) # x: [1,2]
       <section>
         <pre>
           <code class="coffeescript">
-(-> y) () -> z # app
-(-> y)() -> z  # ???
+~~-> false              # lambda/~~
+~~() -> false           # lambda/~~
+(-> false)(true)      # inv
+(-> false) true       # app
+(-> false) () -> true # app
+(-> false)() -> true  # ???
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+-> false              # lambda
+() -> false           # lambda
+~~(-> false)(true)      # inv/~~
+(-> false) true       # app
+(-> false) () -> true # app
+(-> false)() -> true  # ???
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+-> false              # lambda
+() -> false           # lambda
+(-> false)(true)      # inv
+~~(-> false) true       # app/~~
+(-> false) () -> true # app
+(-> false)() -> true  # ???
+          </code>
+        </pre>
+      </section>
+
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+# inv              # app
+(-> false)(true)   (-> false) true
+
+# javascript
+(function(){ return false; })(true);
+
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+-> false              # lambda
+() -> false           # lambda
+(-> false)(true)      # inv
+(-> false) true       # app
+~~(-> false) () -> true # app/~~
+~~(-> false)() -> true  # ???/~~
           </code>
         </pre>
       </section>
