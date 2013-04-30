@@ -39,8 +39,16 @@
   background-image: url(../images/broken.jpg);
 }
 
+.builder {
+  background-image: url(../images/builder.jpg);
+}
+
 .confused {
   background-image: url(../images/confused.png);
+}
+
+.considerations {
+  background-image: url(../images/considerations.png);
 }
 
 .different {

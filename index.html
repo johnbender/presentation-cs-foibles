@@ -625,8 +625,40 @@ Lambda (BooleanExpr True)
         <img src="images/cs-inference-rules-arg-eval.png"/>
       </section>
 
+      <section>
+        <pre><code class="coffeescript">
+# t<sub>1</sub> t<sub>2</sub>
+(-> false) (-> true)()
+
+# t<sub>2</sub> → t<sub>2</sub>'
+true
+
+# t<sub>1</sub> t<sub>2</sub> → t<sub>1</sub> t<sub>2</sub>'
+(-> false) true
+		  </code>
+		</pre>
+	  </section>
+
       <section class="img">
         <img src="images/cs-inference-rules-app-eval.png"/>
+      </section>
+
+      <section>
+        <pre><code class="coffeescript">
+# t v
+(-> (-> false))() true
+
+# t → t'
+(-> false)
+
+# t v → t' v
+(-> false) true
+		  </code>
+		</pre>
+	  </section>
+
+      <section class="img">
+        <img src="images/cs-inference-rules.png"/>
       </section>
 
       <section>
@@ -867,10 +899,9 @@ true                 # value
         </script>
       </section>
 
-      <section data-markdown>
+      <section data-state="considerations background" data-markdown>
         <script type="text/template">
-          ## Considerations
-          * This is far from perfect
+          ## <span class="first-letter">C</span>onsiderations
         </script>
       </section>
 
@@ -884,8 +915,8 @@ true                 # value
       <section>
         <pre>
           <code class="coffeescript">
-(x, y) -> x * y # mult
-(x, y) -> x + y # add
+(x, y) -> x * y     # mult
+(x, y) -> x + y     # add
           </code>
         </pre>
       </section>
@@ -893,22 +924,25 @@ true                 # value
       <section data-markdown>
         <script type="text/template">
           ### Term Space
-          * Stopping + starting the term generator
+          * Stopping/starting term generator
         </script>
       </section>
 
       <section data-markdown>
         <script type="text/template">
           ### Derivations
-          * Automating derivation is hard. Shopping?
+          * Derivation is hard. Shopping?
         </script>
       </section>
 
-      <section data-markdown>
+      <section data-state="builder background" data-markdown>
         <script type="text/template">
-          ## Implementation
-          * git.io/UXRvWA
+          ## <span class="first-letter">I</span>mplementation
         </script>
+      </section>
+
+      <section>
+        <h3 class="link">git.io/l9KYEg</h3>
       </section>
 
       <section data-markdown>

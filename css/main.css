@@ -32,7 +32,6 @@ ul {
   line-height: 1.3em;
   margin: 0 0 0 3px;
   padding: 0;
-  text-transform: lowercase;
 }
 
 section {
@@ -259,4 +258,8 @@ pre .html .tag .title, pre .html .tag .hilight .title {
   color: #538192;
   font-size: 43em;
   line-height: 0.65em;
+}
+
+.reveal sub {
+  font-size: 0.7em;
 }
