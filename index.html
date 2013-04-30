@@ -48,14 +48,21 @@
 
       <section data-state="awesome background" data-markdown>
         <script type="text/template">
-          ## <span class="first-letter">W</span>hy + What
+          ## <span class="first-letter">W</span>hy + <span class="first-letter">W</span>hat
         </script>
       </section>
 
       <section data-markdown>
         <script type="text/template">
-          ### Math/Formalism
-          * Everything here fell out of formalism
+          ### Ac*demic
+          * Not a four letter word
+        </script>
+	  </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ### Formalism
+          * Everything fell out of formalism
         </script>
       </section>
 
@@ -427,7 +434,16 @@ sittin → sitting [+g]
         <pre>
           <code class="coffeescript">
 (-> true)()           # => true
-(-> launch(); true)() # => (!! CRAP)
+(-> launch(); true)() # => true; !! CRAP
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true)()           # => true
+(-> l(); true)()      # => true; !! CRAP
           </code>
         </pre>
       </section>
@@ -439,8 +455,100 @@ sittin → sitting [+g]
         </script>
       </section>
 
-      <section>
-        <pre>
+     <section>
+        <pre><code class="coffeescript"># coffeeScript
+(-> true)()</code></pre>
+        <pre><code class="coffeescript"># tokenized
+'(', '->', ' ', 'true', ')', '()'</code></pre>
+		<pre><code class="haskell">-- abstract form
+(Invoke (Lambda BooleanExpr True))</code> </pre>
+      </section>
+
+     <section>
+        <pre><code class="coffeescript">~~# coffeeScript/~~
+~~(-> true)()/~~</code></pre>
+        <pre><code class="coffeescript"># tokenized
+'(', '->', ' ', 'true', ')', '()'</code></pre>
+		<pre><code class="haskell">-- abstract form
+(Invoke (Lambda BooleanExpr True))</code> </pre>
+      </section>
+
+     <section>
+        <pre><code class="coffeescript"># coffeeScript
+(-> true)()</code></pre>
+        <pre><code class="coffeescript">~~# tokenized/~~
+~~'(', '->', ' ', 'true', ')', '()'/~~</code></pre>
+		<pre><code class="haskell">-- abstract form
+(Invoke (Lambda BooleanExpr True))</code> </pre>
+      </section>
+
+	 <section>
+	   <pre>
+		 <code>
+Expr   : Value              { $1 }
+       | Lambda '()'        { Invoke $1 }
+       | Expr _ Expr        { Apply $1 $3 }
+
+Lambda : '()' _ '->' _ Expr { Lambda $5 }
+       | '->' _ Expr        { Lambda $3 }
+       | '(' Lambda ')'     { $2 }
+		 </code>
+	   </pre>
+	 </section>
+
+	 <section>
+	   <pre>
+		 <code>
+Expr   : Value              { $1 }
+       | Lambda '()'        { Invoke $1 }
+       | Expr _ Expr        { Apply $1 $3 }
+
+Lambda : '()' _ '->' _ Expr { Lambda $5 }
+       | ~~'->' _ Expr        { Lambda $3 }/~~
+       | '(' Lambda ')'     { $2 }
+		 </code>
+	   </pre>
+	 </section>
+
+	 <section>
+	   <pre>
+		 <code>
+Expr   : Value              { $1 }
+       | Lambda '()'        { Invoke $1 }
+       | Expr _ Expr        { Apply $1 $3 }
+
+Lambda : '()' _ '->' _ Expr { Lambda $5 }
+       | '->' _ Expr        { Lambda $3 }
+       | ~~'(' Lambda ')'     { $2 }/~~
+		 </code>
+	   </pre>
+	 </section>
+
+	 <section>
+	   <pre>
+		 <code>
+Expr   : Value              { $1 }
+       | ~~Lambda '()'        { Invoke $1 }/~~
+       | Expr _ Expr        { Apply $1 $3 }
+
+Lambda : '()' _ '->' _ Expr { Lambda $5 }
+       | '->' _ Expr        { Lambda $3 }
+       | '(' Lambda ')'     { $2 }
+		 </code>
+	   </pre>
+	 </section>
+
+     <section>
+        <pre><code class="coffeescript"># coffeeScript
+(-> true)()</code></pre>
+        <pre><code class="coffeescript"># tokenized
+'(', '->', ' ', 'true', ')', '()'</code></pre>
+		<pre><code class="haskell">~~-- abstract form
+(Invoke (Lambda BooleanExpr True))/~~</code></pre>
+      </section>
+
+     <section>
+       <pre>
           <code class="coffeescript">
 (-> true) () -> false # app
 (-> true)() -> false  # inv, app
@@ -942,7 +1050,7 @@ true                 # value
       </section>
 
       <section>
-        <h3 class="link">git.io/l9KYEg</h3>
+        <h3 class="link">git.io/RXJE6g</h3>
       </section>
 
       <section data-markdown>
