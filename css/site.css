@@ -39,12 +39,16 @@
   background-image: url(../images/broken.jpg);
 }
 
-.e-ml {
-  background-image: url(../images/e-ml.png);
+.confused {
+  background-image: url(../images/confused.png);
 }
 
-.first-class {
-  background-image: url(../images/spotlight.jpg);
+.different {
+  background-image: url(../images/different.jpg);
+}
+
+.escher {
+  background-image: url(../images/escher.jpg);
 }
 
 .math {

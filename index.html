@@ -114,7 +114,7 @@ x = (y for y in [1,2]) # x: [1,2]
       </section>
 
      <section>
-        <pre><code class="coffeescript"># lambda      # lambda
+        <pre><code class="coffeescript"># lambda          # lambda
 -> false          () -> false</code></pre>
         <pre><code class="javascript">
 // anonymous function
@@ -124,12 +124,12 @@ x = (y for y in [1,2]) # x: [1,2]
       <section>
         <pre>
           <code class="coffeescript">
--> false              # lambda
-() -> false           # lambda
-(-> false)(true)      # inv
-(-> false) true       # app
-(-> false) () -> true # app
-(-> false)() -> true  # ???
+-> false                # lambda
+() -> false             # lambda
+(-> false)(true)        # inv
+(-> false) true         # app
+(-> false) () -> true   # app
+(-> false)() -> true    # ???
           </code>
         </pre>
       </section>
@@ -137,12 +137,12 @@ x = (y for y in [1,2]) # x: [1,2]
       <section>
         <pre>
           <code class="coffeescript">
-~~-> false              # lambda/~~
-~~() -> false           # lambda/~~
-(-> false)(true)      # inv
-(-> false) true       # app
-(-> false) () -> true # app
-(-> false)() -> true  # ???
+~~-> false                # lambda/~~
+~~() -> false             # lambda/~~
+(-> false)(true)        # inv
+(-> false) true         # app
+(-> false) () -> true   # app
+(-> false)() -> true    # ???
           </code>
         </pre>
       </section>
@@ -150,12 +150,12 @@ x = (y for y in [1,2]) # x: [1,2]
       <section>
         <pre>
           <code class="coffeescript">
--> false              # lambda
-() -> false           # lambda
-~~(-> false)(true)      # inv/~~
-(-> false) true       # app
-(-> false) () -> true # app
-(-> false)() -> true  # ???
+-> false                # lambda
+() -> false             # lambda
+~~(-> false)(true)        # inv/~~
+(-> false) true         # app
+(-> false) () -> true   # app
+(-> false)() -> true    # ???
           </code>
         </pre>
       </section>
@@ -163,12 +163,12 @@ x = (y for y in [1,2]) # x: [1,2]
       <section>
         <pre>
           <code class="coffeescript">
--> false              # lambda
-() -> false           # lambda
-(-> false)(true)      # inv
-~~(-> false) true       # app/~~
-(-> false) () -> true # app
-(-> false)() -> true  # ???
+-> false                # lambda
+() -> false             # lambda
+(-> false)(true)        # inv
+~~(-> false) true         # app/~~
+(-> false) () -> true   # app
+(-> false)() -> true    # ???
           </code>
         </pre>
       </section>
@@ -190,12 +190,64 @@ x = (y for y in [1,2]) # x: [1,2]
       <section>
         <pre>
           <code class="coffeescript">
--> false              # lambda
-() -> false           # lambda
-(-> false)(true)      # inv
-(-> false) true       # app
-~~(-> false) () -> true # app/~~
-~~(-> false)() -> true  # ???/~~
+-> false                # lambda
+() -> false             # lambda
+(-> false)(true)        # inv
+(-> false) true         # app
+~~(-> false) () -> true   # app/~~
+(-> false)() -> true    # ???
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+-> false                # lambda
+() -> false             # lambda
+(-> false)(true)        # inv
+(-> false) true         # app
+~~(-> false) (() -> true) # app/~~
+(-> false)() -> true    # ???
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+-> false                # lambda
+() -> false             # lambda
+(-> false)(true)        # inv
+(-> false) true         # app
+~~(-> false) (-> true)    # app/~~
+(-> false)() -> true    # ???
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+-> false                # lambda
+() -> false             # lambda
+(-> false)(true)        # inv
+(-> false) true         # app
+~~(-> false) () -> true   # app/~~
+(-> false)() -> true    # ???
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+-> false                # lambda
+() -> false             # lambda
+(-> false)(true)        # inv
+(-> false) true         # app
+~~(-> false) () -> true   # app/~~
+~~(-> false)() -> true    # ???/~~
           </code>
         </pre>
       </section>
@@ -227,11 +279,29 @@ x = (y for y in [1,2]) # x: [1,2]
         </pre>
       </section>
 
+      <section class="hilighted">
+        <pre>
+          <code class="coffeescript">
+(-> true) () -> false # app
+~~true/~~ -> false         # ???
+          </code>
+        </pre>
+      </section>
+
       <section>
         <pre>
           <code class="coffeescript">
 (-> true) () -> false # app
-(-> true)() ~~-> false/~~  # ???
+~~true -> false/~~         # ???
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <pre>
+          <code class="coffeescript">
+(-> true) () -> false # app
+~~true(-> false)~~        # ???
           </code>
         </pre>
       </section>
@@ -254,10 +324,9 @@ x = (y for y in [1,2]) # x: [1,2]
         </pre>
       </section>
 
-      <section data-markdown>
+      <section data-state="confused background" data-markdown>
         <script type="text/template">
-          ## Ambiguity
-          * What makes terms confusing?
+          ## <span class="first-letter">A</span>mbiguity
         </script>
       </section>
 
@@ -286,6 +355,16 @@ x = (y for y in [1,2]) # x: [1,2]
         </script>
       </section>
 
+      <section data-markdown>
+        <pre>
+          <code>
+kitten → sitten  [s/k]
+sitten → sittin  [i/e]
+sittin → sitting [+g]
+          </code>
+        </pre>
+      </section>
+
       <section class="img">
         <img src="images/cs-dist.png"/>
       </section>
@@ -293,8 +372,11 @@ x = (y for y in [1,2]) # x: [1,2]
       <section>
         <pre>
           <code class="coffeescript">
-(-> true) () -> false # S1 length: 21
-(-> true)() -> false  # S2 length: 20
+# S<sub>1</sub> length: 21
+(-> true) () -> false
+
+# S<sub>2</sub> length: 20
+(-> true)() -> false
           </code>
         </pre>
       </section>
@@ -306,7 +388,7 @@ x = (y for y in [1,2]) # x: [1,2]
       <section data-markdown>
         <script type="text/template">
           ### Semantics
-          * similar ... but different
+          * similar strings, different meaning
         </script>
       </section>
 
@@ -328,10 +410,9 @@ x = (y for y in [1,2]) # x: [1,2]
         </pre>
       </section>
 
-      <section data-markdown>
+      <section data-state="different background" data-markdown>
         <script type="text/template">
-          ## Differentiation
-          * How do we determine semantic differences?
+          ## <span class="first-letter">D</span>ifferentiate
         </script>
       </section>
 
@@ -371,9 +452,9 @@ x = (y for y in [1,2]) # x: [1,2]
         <pre>
           <code class="haskell">
 -- (-> true)☠() -> false
-Apply
+(Apply
   (Lambda (BooleanExpr True))
-  (Lambda (BooleanExpr False))
+  (Lambda (BooleanExpr False)))
           </code>
         </pre>
       </section>
@@ -382,19 +463,11 @@ Apply
         <pre>
           <code class="haskell">
 -- (-> true)() -> false
-Apply
+(Apply
   (Invoke (Lambda (BooleanExpr True)))
-  (Lambda (BooleanExpr False))
+  (Lambda (BooleanExpr False)))
           </code>
         </pre>
-      </section>
-
-      <section>
-        <h1 style="text-align: center">Fin?!</h1>
-      </section>
-
-      <section>
-        <h1 style="text-align: center">Nope</h1>
       </section>
 
       <section data-markdown>
@@ -452,9 +525,9 @@ Lambda (BooleanExpr True)
         <pre>
           <code class="haskell">
 -- (-> true)☠() -> false
-Apply
+(Apply
   (Lambda (BooleanExpr True))
-  (Lambda (BooleanExpr False))
+  (Lambda (BooleanExpr False)))
           </code>
         </pre>
       </section>
@@ -464,9 +537,9 @@ Apply
         <pre>
           <code class="haskell">
 ~~-- (-> true)☠() -> false/~~
-Apply
+(Apply
   ~~(Lambda (BooleanExpr True))/~~
-  (Lambda (BooleanExpr False))
+  (Lambda (BooleanExpr False)))
           </code>
         </pre>
       </section>
@@ -475,17 +548,16 @@ Apply
         <pre>
           <code class="haskell">
 ~~-- (-> true)() -> false/~~
-Apply
+(Apply
   ~~(Invoke (Lambda (BooleanExpr True)))/~~
-  (Lambda (BooleanExpr False))
+  (Lambda (BooleanExpr False)))
           </code>
         </pre>
       </section>
 
-      <section data-markdown>
+      <section data-state="math background" data-markdown>
         <script type="text/template">
-          ## Op. Semantics
-          * Maths for evaluation semantics
+          ## <span class="first-letter">O</span>p. Semantics
         </script>
       </section>
 
@@ -618,10 +690,9 @@ Apply
         </script>
       </section>
 
-      <section data-markdown>
+      <section data-state="escher background" data-markdown>
         <script type="text/template">
-          ## Seeking Confusion
-          * How can we use this information preventatively?
+          ## <span class="first-letter">F</span>ind Confusion
         </script>
       </section>
 

@@ -13,10 +13,10 @@
 * thanks
 
 
-* TODO add full image adobe slide
+* DONE add full image adobe slide
 * TODO add background images for main heading slides
 * TODO slide with many lambda invocations add parens around second lambda to make it clear?
-* TODO use true and false up front for everything?
+* DONE use true and false up front for everything?
 * TODO explain levenshtein distance futher?
 * TODO use the canonical example for evaluation as semantic diff + example where that's not true?
 * TODO explain abstract syntax tree/ abstract representation
