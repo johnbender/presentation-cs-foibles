@@ -1,5 +1,18 @@
 .intro > h1, .outro > h1 {
-  font-size: 11em;
+  font-size: 13em;
+}
+
+.thanks > h1 {
+  font-size: 15em;
+}
+
+.thanks > h4 {
+  padding-left: 22px;
+  font-size: 3.7em;
+}
+
+.intro > h4, .outro > h4 {
+  font-size: 5em;
 }
 
 .intro ul, .outro ul {
@@ -73,4 +86,15 @@
 
 .wield {
   background-image: url(../images/wield.jpg);
+}
+
+span.envy {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(22%,#222222), color-stop(90%,#739200)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #222222 22%,#739200 90%); /* Chrome10+,Safari5.1+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.reveal .slides {
+  max-width: 1000px;
 }
