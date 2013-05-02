@@ -61,7 +61,7 @@
 }
 
 .considerations {
-  background-image: url(../images/considerations.png);
+  background-image: url(../images/considerations.jpg);
 }
 
 .different {
@@ -97,4 +97,8 @@ span.envy {
 
 .reveal .slides {
   max-width: 1000px;
+}
+
+.empty h2 {
+  display: none;
 }

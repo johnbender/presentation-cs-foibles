@@ -29,5 +29,9 @@
 * TODO concrete examples of how a tool might generate terms and compare in a DB
 * DONE larger link to implementation
 
+!!!!
+* TODO generate slides to hand off
+!!!!
+
 
 * note about coffeescript, what it is? Ask audience?
