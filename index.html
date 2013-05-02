@@ -94,6 +94,13 @@
         </script>
       </section>
 
+      <section data-markdown>
+        <script type="text/template">
+          ### Bugs Matter
+          * Millions of dollars, years of sleep
+        </script>
+      </section>
+
       <section data-state="broken background" data-markdown>
         <script type="text/template">
           ## <span class="first-letter">F</span>oibles a la carte
@@ -114,8 +121,8 @@ a +b  # a(+b) app
       <section>
         <pre>
           <code class="coffeescript">
-x = y for y in [1,2]   # x: 2
 x = (y for y in [1,2]) # x: [1,2]
+x = y for y in [1,2]   # x: 2
          </code>
         </pre>
       </section>
@@ -476,11 +483,11 @@ x = (y for y in [1,2]) # x: [1,2]
 	 <section>
 	   <pre>
 		 <code>
-Expr   : Value              { $1 }
-       | Lambda '()'        { Invoke $1 }
-Lambda : '()' _ '->' _ Expr { Lambda $5 }
-       | '->' _ Expr        { Lambda $3 }
-       | '(' Lambda ')'     { $2 }</code></pre>
+Exp    : Value             { $1 }
+       | Lambda '()'       { Invoke $1 }
+Lambda : '()' _ '->' _ Exp { Lambda $5 }
+       | '->' _ Exp        { Lambda $3 }
+       | '(' Lambda ')'    { $2 }</code></pre>
 
         <pre><code class="coffeescript"># tokenized
 '(', '->', ' ', 'true', ')', '()'</code></pre>
@@ -490,11 +497,11 @@ Lambda : '()' _ '->' _ Expr { Lambda $5 }
 	 <section>
 	   <pre>
 		 <code>
-Expr   : Value              { $1 }
-       | Lambda '()'        { Invoke $1 }
-Lambda : '()' _ '->' _ Expr { Lambda $5 }
-       | ~~'->' _ Expr        { Lambda $3 }/~~
-       | '(' Lambda ')'     { $2 }</code></pre>
+Exp    : Value             { $1 }
+       | Lambda '()'       { Invoke $1 }
+Lambda : '()' _ '->' _ Exp { Lambda $5 }
+       | ~~'->' _ Exp        { Lambda $3 }/~~
+       | '(' Lambda ')'    { $2 }</code></pre>
 
         <pre><code class="coffeescript"># tokenized
 '(', ~~'->', ' ', 'true'/~~, ')', '()'</code></pre>
@@ -504,11 +511,11 @@ Lambda : '()' _ '->' _ Expr { Lambda $5 }
 	 <section>
 	   <pre>
 		 <code>
-Expr   : Value              { $1 }
-       | Lambda '()'        { Invoke $1 }
-Lambda : '()' _ '->' _ Expr { Lambda $5 }
-       | '->' _ Expr        { Lambda $3 }
-       | ~~'(' Lambda ')'     { $2 }/~~</code></pre>
+Exp    : Value             { $1 }
+       | Lambda '()'       { Invoke $1 }
+Lambda : '()' _ '->' _ Exp { Lambda $5 }
+       | '->' _ Exp        { Lambda $3 }
+       | ~~'(' Lambda ')'    { $2 }/~~</code></pre>
 
         <pre><code class="coffeescript"># tokenized
 ~~'(', '->', ' ', 'true', ')'/~~, '()'</code></pre>
@@ -518,11 +525,11 @@ Lambda : '()' _ '->' _ Expr { Lambda $5 }
 	 <section>
 	   <pre>
 		 <code>
-Expr   : Value              { $1 }
-       | ~~Lambda '()'        { Invoke $1 }/~~
-Lambda : '()' _ '->' _ Expr { Lambda $5 }
-       | '->' _ Expr        { Lambda $3 }
-       | '(' Lambda ')'     { $2 }</code></pre>
+Exp    : Value             { $1 }
+       | ~~Lambda '()'       { Invoke $1 }/~~
+Lambda : '()' _ '->' _ Exp { Lambda $5 }
+       | '->' _ Exp        { Lambda $3 }
+       | '(' Lambda ')'    { $2 }</code></pre>
 
         <pre><code class="coffeescript"># tokenized
 ~~'(', '->', ' ', 'true', ')', '()'/~~</code></pre>
